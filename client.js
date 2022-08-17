@@ -5,7 +5,7 @@ const { IP, PORT, PLAYER_INITIAL, ENCODING } = require("./constants");
 const connect = function() {
   const conn = net.createConnection({
     host: IP, // IP address here,
-    port: PORT// PORT number here,
+    port: PORT // PORT number here,
   });
 
   // interpret incoming data as text
