@@ -1,19 +1,20 @@
 const net = require("net");
+const { IP, PORT, PLAYER_INITIAL, ENCODING } = require("./constants");
 
 // establishes a connection with the game server
 const connect = function() {
   const conn = net.createConnection({
-    host: "10.0.2.15", // IP address here,
-    port: 50541// PORT number here,
+    host: IP, // IP address here,
+    port: PORT// PORT number here,
   });
 
   // interpret incoming data as text
-  conn.setEncoding("utf8");
+  conn.setEncoding(ENCODING);
 
   //check if the connection has been established
   conn.on("connect", () => {
     console.log("Successfully connected to game server");
-    conn.write("Name: GPT");
+    conn.write(`Name: ${PLAYER_INITIAL}`);
   });
 
   conn.on("data", (data) => {
